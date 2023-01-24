@@ -26,11 +26,11 @@ copy_by_list = function(path = getwd(), list, type) {
     print("some files from list were not found in the path provided")
   }
   
+  
  fn_list %>% map(~ file.copy(from = ., to = getwd())
                  )
 
 }
-  
   
   
   
