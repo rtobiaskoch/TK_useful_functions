@@ -7,7 +7,7 @@ purrr_lm = function(y, df) {
   
   uni = df %>% 
     dplyr::select(-y) %>%  # exclude outcome, leave only predictors 
-    map(~glm.nb(df$y ~ .x, data = Affairs))
+    map(~glm.nb(df$y ~ .x, data = df))
   
   t = uni %>%
     map_df(~tidy(.x, conf.int = T, exponentiate = T))
