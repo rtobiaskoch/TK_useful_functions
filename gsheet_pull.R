@@ -1,15 +1,10 @@
-#this function 
-
-gsheet_pull = function(key, sheet) {
+gsheet_pull = function(key, sheet, email) {
   require(googlesheets4)
+  require(dplyr)
   library(googlesheets4)
-  
-  d = read_sheet(key, sheet = sheet)
-  
-  #authorize token response
-  1
-  
-  mdata = apply(d, 2, as.character) #added because error   unimplemented type 'list' in 'EncodeElement' was occuring
-  write.csv(mdata, "gsheet_data.csv")
+  library(dplyr)
+  googlesheets4::gs4_auth(email)
+  googlesheets4::read_sheet(ss = key, sheet = sheet) %>%
+    dplyr::mutate_if(is.list, as.character)
   
 }
