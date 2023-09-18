@@ -1,10 +1,13 @@
-fasta_name_switch = function(f, x, y){
+
+fasta_name_switch = function(fasta, new_names){
+  
+  require(stringr)
   
   t = f
   
-  for(i in 1:length(f)) {
-    n = which(names(f)[i] == x)
-    names(t)[i] = y[n]
+  for(i in 1:length(fasta)) {
+    n = which(str_detect(new_names, names(fasta)[i]))
+    names(t)[i] = new_names[n]
   }
   t
 }
