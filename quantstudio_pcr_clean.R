@@ -1,8 +1,22 @@
 
-#INPUT AND NOTES
+#HEADER CODE
 #this handles up to 4 plates, can be more if you edit the grepl statement 
-fn_pcr = location of your pcr output from quant studio
-fn_platemap = location of your platemaps that correspond to the output from quantstudio
+fn_pcr = as.character(readline("Enter the relative path to your pcr files:"))
+fn_platemap = as.character(readline("Enter the relative path to your platemap files:"))
+
+#LOAD PACKAGES
+rm(list = ls())
+suppressMessages({
+  if (!require("pacman")) install.packages("pacman")
+  pacman::p_unload()
+  pacman::p_load(dplyr, purrr# plotting
+  )
+  
+  
+})
+
+list.files(fn_pcr)
+
 
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 #pcr data
